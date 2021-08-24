@@ -7,7 +7,7 @@ let router = Router();
 
 // Routes
 router.get("/", (req, res) => {
-    res.status(200).sendFile(path.join(__dirname, "../html/home.html"));
+    res.status(200).sendFile(path.join(__dirname, "../html/api/api.html"));
 });
 
 // Exports
