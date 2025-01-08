@@ -1,37 +1,17 @@
 {
-	"devDependencies": {
-		"@sveltejs/adapter-node": "^5.0.1",
-		"@sveltejs/enhanced-img": "^0.3.0",
-		"@sveltejs/kit": "^2.0.0",
-		"@sveltejs/vite-plugin-svelte": "^3.0.0",
-		"@types/eslint": "^8.56.0",
-		"@types/node": "^20.12.11",
-		"@typescript-eslint/eslint-plugin": "^7.0.0",
-		"@typescript-eslint/parser": "^7.0.0",
-		"bundle-scss": "^1.5.4",
-		"eslint": "^8.56.0",
-		"eslint-plugin-svelte": "^2.35.1",
-		"rollup-plugin-svelte": "^7.2.0",
-		"sass": "^1.75.0",
-		"svelte": "^4.2.7",
-		"svelte-check": "^3.6.0",
-		"svelte-preprocess": "^5.1.4",
-		"tslib": "^2.4.1",
-		"typescript": "^5.0.0",
-		"vite": "^5.0.3"
+	"dependencies": {
+		"preact": "^10.25.3"
 	},
-	"name": "website",
+	"devDependencies": {
+		"@preact/preset-vite": "^2.9.3",
+		"typescript": "^5.7.2",
+		"vite": "^6.0.4"
+	},
 	"private": true,
 	"scripts": {
 		"build": "vite build",
-		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
-		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
-		"dev": "vite dev",
-		"format": "prettier --write .",
-		"host": "vite --host",
-		"lint": "prettier --check . && eslint .",
+		"dev": "vite",
 		"preview": "vite preview"
 	},
-	"type": "module",
-	"version": "1.0.0"
+	"type": "module"
 }

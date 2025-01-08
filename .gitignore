@@ -1,11 +1,2 @@
-!.env.example
-.DS_Store
-.env
-.env.*
-.svelte-kit
-build
+dist
 node_modules
-package
-src/lib/routes/**/.*
-vite.config.js.timestamp-*
-vite.config.ts.timestamp-*
