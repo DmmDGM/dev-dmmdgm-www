@@ -1,15 +1,34 @@
-# bunsvr
+# Bunsvr
 
-To install dependencies:
+## Synopsis
 
-```bash
-bun install
+A small template repository for all of my Bun web servers.
+
+## Installation
+
+```
+# Clone the repository
+git clone https://github.com/DmmDGM/bunsvr my-project
+cd my-project
+
+# Install packages
+bun i
+
+# Starts server
+bun .
 ```
 
-To run:
+## Configuration
 
-```bash
-bun run index.ts
+```.env
+# Server port
+PORT=3000
 ```
 
-This project was created using `bun init` in bun v1.2.7. [Bun](https://bun.sh) is a fast all-in-one JavaScript runtime.
+## Contribution
+
+Active contributions are welcome. Don't expect anything glorious from this repository though.
+
+---
+
+###### Last Updated: June 7th, 2025, 8:02 PM EST.
