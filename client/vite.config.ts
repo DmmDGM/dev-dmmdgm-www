@@ -1,7 +1,8 @@
-import { defineConfig } from 'vite';
-import preact from '@preact/preset-vite';
+// Imports
+import preact from "@preact/preset-vite";
+import { defineConfig } from "vite";
 
-// https://vitejs.dev/config/
+// Exports
 export default defineConfig({
-	plugins: [preact()],
+	plugins: [ preact() ],
 });
