@@ -1,0 +1,12 @@
+{
+    "dependencies": {
+        "hono": "^4.9.8"
+    },
+    "devDependencies": {
+        "@types/bun": "latest"
+    },
+    "name": "hono",
+    "scripts": {
+        "dev": "bun run --hot src/index.ts"
+    }
+}
