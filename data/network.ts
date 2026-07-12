@@ -6,14 +6,14 @@ export type Social = {
     website: string | null;
     youtube: string | null;
 };
-export type Info = {
+export type Card = {
     id: string;
     name: string;
     social: Social;
 };
 
 // Defnes social
-export const self: Info = {
+export const self: Card = {
     id: "dmmdgm",
     name: "DmmDGM",
     social: {
@@ -26,7 +26,7 @@ export const self: Info = {
 };
 
 // Defines frens
-export const frens: Info[] = [
+export const frens: Card[] = [
     {
         id: "iipython",
         name: "iiPython",
