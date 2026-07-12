@@ -1,11 +1,9 @@
-import { useRoute } from "preact-iso";
-
+// Defines home
 export function Home() {
-    console.log(useRoute());
-
+    // Creates home
     return (
-        <div class="test">
-            ok
+        <div>
+            yuh
         </div>
     );
 }

@@ -25,46 +25,58 @@ html, body {
 
 /* Header */
 header {
-    padding: 10px 25px;
-    display: flex;
     align-items: center;
+    display: flex;
     gap: 10px 50px;
+    padding: 10px 25px;
 
     & nav {
         display: flex;
         flex-wrap: wrap;
         gap: 10px 25px;
     }
+
+    & #logo {
+        align-items: center;
+        display: flex;
+        font-weight: bold;
+        gap: 0px 15px;
+        
+        & img {
+            height: 35px;
+        }
+    }
 }
 
 /* Footer */
 footer {
     display: flex;
-    flex-wrap: wrap;
-    gap: 50px 100px;
-    justify-content: center;
-    padding: 10px 100px;
+    flex-direction: column;
+    gap: 50px 0px;
+    padding: 50px 100px;
 
-    > div {
+    & nav {
         display: flex;
-        gap: 10px 0px;
-        flex-direction: column;
+        flex-wrap: wrap;
+        gap: 50px 100px;
+        justify-content: center;
 
-        > p:first-child {
-            font-weight: bold;
+        > div {
+            display: flex;
+            gap: 10px 0px;
+            flex-direction: column;
+
+            > p:first-child {
+                font-weight: bold;
+            }
         }
     }
-}
 
-/* Logo */
-.logo {
-    align-items: center;
-    display: flex;
-    gap: 0px 15px;
-    font-weight: bold;
-    
-    & img {
-        height: 35px;
+    & #watermark {
+        display: flex;
+        justify-content: center;
+        font-size: 10px;
+        color: var(--sd-mono-500);
     }
 }
 
