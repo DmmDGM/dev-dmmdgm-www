@@ -1,5 +1,6 @@
 // Imports
 import { render } from "preact";
+import { Route, Link,  } from "wouter-preact";
 import "./assets/css/index.css";
 
 // Defines website
