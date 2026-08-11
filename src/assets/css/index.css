@@ -1,58 +1,90 @@
-/* Reset */
+/* ----- Global Styles ----- */
+
+/* Fullscreen Body */
 html, body, #website { height: 100%; width: 100%; }
+
+/* Vertical Layout */
 #website { display: flex; flex-direction: column; }
-* {
-    color: #efefef;
-    font-family: "Noto Sans";
-    margin: 0px;
-    padding: 0px;
-}
+
+/* No Default Spacing */
+* { margin: 0px; padding: 0px; }
+
+/* Default Text Style  */
+* { color: #efefef; font-family: "Noto Sans"; }
+
+
+
+/* ----- Template Styles ----- */
 
 /* Header */
 header {
-    display: flex;
-    gap: 0px 100px;
-    justify-content: center;
-    align-items: center;
-    height: 50px;
-    padding: 25px 0px;
+    /* Base Size */
     font-size: 15px;
 
+    /* Horizontal + Center Layout */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0px 5%;
+
+    /* Adjust Dimensions */
+    height: 50px;
+    padding: 1em 0px;
+    
+    /* Avatar */
     & img {
-        height: 5em;
+        /* Make Smol */
+        height: 3em;
+
+        /* Funni Hover */
+        &:hover { rotate: 180deg; }
     }
 
+    /* Links */
     & a {
+        /* Uniform Width */
+        width: 5em;
+        
+        /* Text Style */
         font-size: 1em;
         font-weight: bold;
-        width: 5em;
         text-align: center;
+        text-decoration: none;
     }
 }
 
 /* Main */
 main {
     flex: 1;
+    padding: 50px 100px;
 }
 
 /* Footer */
 footer {
-    display: flex;
-    justify-content: space-between;
-    padding: 20px 25px;
+    /* Base Size */
     font-size: 10px;
-    height: 10px;
 
-    & a, & span {
-        color: #2f2f4f;
-    }
+    /* Horizontal + Spread Layout */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 
+    /* Adjust Dimensions */
+    height: 1em;
+    padding: 2em 3em;
+
+    /* Text Color */
+    & a, & span { color: #2f2f4f; }
+
+    /* Redirections */
     & a {
+        /* Add Underline */
         text-decoration: underline;
+
+        /* Hover Animation */
         transition: color 0.2s ease;
 
-        &:hover {
-            color: #4f4f6f;
-        }
+        /* Glow Hover */
+        &:hover { color: #4f4f6f; }
     }
 }

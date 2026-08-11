@@ -1,6 +1,6 @@
 // Imports
 import { render } from "preact";
-import { Route, Link,  } from "wouter-preact";
+import { Route, Link, Switch } from "wouter-preact";
 import "./assets/css/index.css";
 
 // Defines website
@@ -8,17 +8,20 @@ function Website() {
 	return <>
 		{/* Header */}
 		<header>
-			<a>World</a>
-			<a>About</a>
+			<Link href="/">World</Link>
+			<Link href="/about">About</Link>
 			<img src="/happi.png"/>
-			<a>Projects</a>
-			<a>Roadmap</a>
+			<Link href="/projects">Projects</Link>
+			<Link href="/roadmaps">Roadmaps</Link>
 		</header>
 
 		<main>
-			working in progress....
-			{/* Game */}
-			<canvas></canvas>
+			<Switch>
+				<Route path="/">
+					<canvas></canvas>
+				</Route>
+				<Route>Coming Soon</Route>
+			</Switch>
 		</main>
 		
 		{/* Footer */}
