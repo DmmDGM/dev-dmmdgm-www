@@ -15,6 +15,7 @@ function Website() {
 		</header>
 
 		<main>
+			working in progress....
 			{/* Game */}
 			<canvas></canvas>
 		</main>
