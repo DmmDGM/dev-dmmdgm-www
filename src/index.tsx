@@ -1,12 +1,13 @@
 // Imports
 import { render } from "preact";
+import "./assets/css/index.css";
 
-// Defines root
-function App() {
-	return <div>
-		project alvar
-	</div>;
+// Defines website
+function Website() {
+	return <>
+		<nav>hello</nav>
+	</>;
 }
 
-// Renders root
-render(<App/>, document.getElementById("app")!);
+// Renders website
+render(<Website/>, document.getElementById("website")!);

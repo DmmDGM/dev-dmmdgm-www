@@ -8,20 +8,23 @@
 			"react": [ "./node_modules/preact/compat/" ],
 			"react-dom": [ "./node_modules/preact/compat/" ]
 		},
-		"module": "esnext",
-		"moduleResolution": "bundler",
-		"noEmit": true,
-		"skipLibCheck": true,
-		"target": "es2025",
 
 		// Typecheck
+		"lib": [ "ESNext", "DOM" ],
+		"module": "esnext",
+		"moduleDetection": "force",
+		"moduleResolution": "bundler",
+		"noEmit": true,
 		"noFallthroughCasesInSwitch": true,
 		"noImplicitOverride": true,
 		"noPropertyAccessFromIndexSignature": false,
 		"noUncheckedIndexedAccess": true,
 		"noUnusedLocals": false,
 		"noUnusedParameters": false,
+		"skipLibCheck": true,
 		"strict": true,
+		"target": "es2025",
+		"types": [ "vite/client" ]
 	},
 
 	// Checker
