@@ -1,0 +1,7 @@
+compatibility_date = "2026-08-10"
+name = "dev-dmmdgm-www"
+workers_dev = false
+
+[assets]
+directory = "dist"
+not_found_handling = "single-page-application"

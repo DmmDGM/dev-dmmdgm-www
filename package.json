@@ -1,12 +1,23 @@
 {
     "dependencies": {
-        "hono": "^4.9.8"
+        "preact": "^10.26.9"
     },
     "devDependencies": {
-        "@types/bun": "latest"
+        "@cloudflare/vite-plugin": "^1.51.2",
+        "@preact/preset-vite": "^2.10.2",
+        "@types/bun": "latest",
+        "typescript": "^7.0.2",
+        "vite": "^7.0.4",
+        "wrangler": "^4.120.1"
     },
-    "name": "hono",
+    "module": "src/index.tsx",
+    "name": "dev-dmmdgm-www",
+    "private": true,
     "scripts": {
-        "dev": "bun run --hot src/index.ts"
-    }
+        "build": "vite build",
+        "deploy": "vite build && wrangler deploy",
+        "dev": "vite",
+        "preview": "vite preview"
+    },
+    "type": "module"
 }

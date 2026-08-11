@@ -1,5 +1,29 @@
 {
-    "compilerOptions": {
-        "strict": true
-    }
+	// Compiler
+	"compilerOptions": {
+		// Preact
+		"jsx": "react-jsx",
+		"jsxImportSource": "preact",
+		"paths": {
+			"react": [ "./node_modules/preact/compat/" ],
+			"react-dom": [ "./node_modules/preact/compat/" ]
+		},
+		"module": "esnext",
+		"moduleResolution": "bundler",
+		"noEmit": true,
+		"skipLibCheck": true,
+		"target": "es2025",
+
+		// Typecheck
+		"noFallthroughCasesInSwitch": true,
+		"noImplicitOverride": true,
+		"noPropertyAccessFromIndexSignature": false,
+		"noUncheckedIndexedAccess": true,
+		"noUnusedLocals": false,
+		"noUnusedParameters": false,
+		"strict": true,
+	},
+
+	// Checker
+	"include": [ "src" ]
 }
