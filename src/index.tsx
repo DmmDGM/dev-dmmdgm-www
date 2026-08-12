@@ -1,14 +1,19 @@
 // Imports
 import { render } from "preact";
+import { useState } from "preact/hooks";
+import About from "./compos/about";
+import Shade from "./compos/shade";
 import "./assets/css/index.css";
 
 // Defines website
 function Website() {
+	const [ inPopup, setInPopup ] = useState<boolean>(false);
+
 	return <>
 		{/* Header */}
 		<header>
-			<button>About</button>
-			<button>Projects</button>
+			<button onClick={() => setInPopup(true)}>About</button>
+			<button>{inPopup ? "yes" :"no"}</button>
 			<img src="/happi.png"/>
 			<button>Roadmaps</button>
 			<button>Updates</button>
@@ -16,9 +21,12 @@ function Website() {
 
 		{/* Main */}
 		<main>
-			<canvas id="canvas"></canvas>
-			idfk prob like a game somewhere here ig
+			<iframe src="https://game.dmmdgm.dev/game.html" width="100%" height="100%"></iframe>
 		</main>
+
+		{/* Popup */}
+		<Shade toggle={inPopup}/>
+		<About close={() => setInPopup(false)}/>
 		
 		{/* Footer */}
 		<footer>

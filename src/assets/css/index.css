@@ -1,6 +1,6 @@
 /* ----- Global Styles ----- */
 
-/* Fullscreen Body */
+/* Full Screen */
 html, body, #website { height: 100%; width: 100%; }
 
 /* Vertical Layout */
@@ -59,13 +59,17 @@ header {
 
 /* Main */
 main {
+    /* Full Height */
     flex: 1;
-    padding: 50px 100px;
+
+    /* Padding */
+    padding: 25px 50px;
 }
 
-/* Canvas */
-#canvas {
-    border: 2px white solid;
+/* Game */
+iframe {
+    /* No Border */
+    border: none;
 }
 
 /* Footer */
