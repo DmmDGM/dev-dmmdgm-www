@@ -2,18 +2,23 @@
 import { render } from "preact";
 import { useEffect, useState } from "preact/hooks";
 import close from "./assets/svg/close-button.svg";
+import About from "./comps/about";
 import "./assets/css/index.css";
 
 // Defines website
 function Website() {
 	// Defines states
 	const [ inPopup, setInPopup ] = useState<boolean>(false);
+	const [ banner, setBanner ] = useState<string>("");
 
 	// Registers events
 	useEffect(() => {
 		// Defines events
 		const keydown = (event: KeyboardEvent) => {
-			if(inPopup && event.key === "Escape") setInPopup(false);
+			if(inPopup && event.key === "Escape") {
+				setInPopup(false);
+				setBanner("");
+			}
 		};
 
 		// Listens events
@@ -29,11 +34,11 @@ function Website() {
 	return <>
 		{/* Header */}
 		<header>
-			<button onClick={() => setInPopup(true)}>About</button>
-			<button onClick={() => setInPopup(true)}>Projects</button>
+			<button onClick={() => { setInPopup(true); setBanner("about"); }}>About</button>
+			<button onClick={() => { setInPopup(true); setBanner("projects"); }}>Projects</button>
 			<img src="/happi.png"/>
-			<button onClick={() => setInPopup(true)}>Roadmaps</button>
-			<button onClick={() => setInPopup(true)}>Updates</button>
+			<button onClick={() => { setInPopup(true); setBanner("roadmaps"); }}>Roadmaps</button>
+			<button onClick={() => { setInPopup(true); setBanner("updates"); }}>Updates</button>
 		</header>
 
 		{/* Main */}
@@ -50,13 +55,14 @@ function Website() {
 		</footer>
 
 		{/* Shade */}
-		<div id="shade" onClick={() => setInPopup(false)} className={inPopup ? "enabled" : "disabled"}></div>
+		<div id="shade" onClick={() => { setInPopup(false); setBanner(""); }} className={inPopup ? "enabled" : "disabled"}></div>
 		
 		{/* Popup */}
 		<div id="popup" className={inPopup ? "enabled" : "disabled"}>
-			<button id="close" onClick={() => setInPopup(false)}><img src={close}/></button>
+			<button id="close" onClick={() => { setInPopup(false); setBanner(""); }}><img src={close}/></button>
 			<div id="board">
-				Hello World!
+				Lorem Ipsum :3333333<br/>
+				{ banner === "about" && <About/>}
 			</div>
 		</div>
 	</>;
