@@ -1,3 +1,13 @@
+/* -----# Variables #----- */
+:root {
+    --color-1: #1f1f2f;
+    --color-2: #2f2f4f;
+    --color-3: #4f4f8f;
+}
+
+
+
+
 /* -----# Global Styles #----- */
 
 /* Full Screen */
@@ -7,10 +17,10 @@ html, body, #website { height: 100%; width: 100%; }
 #website { display: flex; flex-direction: column; }
 
 /* No Default Spacing */
-* { margin: 0px; padding: 0px; }
+* { margin: 0; padding: 0; }
 
-/* Default Text Style  */
-* { color: #efefef; font-family: "Noto Sans"; }
+/* Default Text Styles  */
+* { color: #efefef; font-family: "Noto Sans"; font-size: 15px; }
 
 /* -----# Global Styles #----- */
 
@@ -22,18 +32,15 @@ html, body, #website { height: 100%; width: 100%; }
 
 /* Header */
 header {
-    /* Base Size */
-    font-size: 15px;
-
     /* Horizontal + Center Layout */
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 0px 5%;
+    gap: 0 5%;
 
     /* Adjust Size */
     height: 3em;
-    padding: 1em 0px;
+    padding: 1em 0;
     
     /* Avatar */
     & img {
@@ -44,7 +51,7 @@ header {
         &:hover { rotate: 180deg; }
     }
 
-    /* Triggers */
+    /* Buttons */
     & button {
         /* Uniform Width */
         width: 5em;
@@ -56,32 +63,27 @@ header {
         /* Pointer Cursor */
         cursor: pointer;
         
-        /* Text Style */
-        font-size: 1em;
+        /* Text Styles */
         font-weight: bold;
         text-align: center;
         text-decoration: none;
+
+        /* Hover Underline */
+        &:hover { text-decoration: underline; }
     }
 }
 
 /* Main */
 main {
-    /* Base Size */
-    font-size: 15px;
-
     /* Full Height */
     flex: 1;
 
     /* Padding */
-    padding: 0px 2em;
+    padding: 0 2em;
 }
-
 
 /* Footer */
 footer {
-    /* Base Size */
-    font-size: 10px;
-
     /* Horizontal + Spread Layout */
     display: flex;
     align-items: center;
@@ -89,10 +91,10 @@ footer {
 
     /* Adjust Size */
     height: 1em;
-    padding: 2em 3em;
+    padding: 1em 2em;
 
-    /* Text Color */
-    & a, & span { color: #1f1f2f; }
+    /* Text Styles */
+    & a, & span { color: var(--color-1); font-size: 0.75em; }
 
     /* Redirections */
     & a {
@@ -101,9 +103,7 @@ footer {
 
         /* Hover Animation */
         transition: color 0.2s ease;
-
-        /* Glow Hover */
-        &:hover { color: #2f2f4f; }
+        &:hover { color: var(--color-2); }
     }
 }
 
@@ -118,69 +118,59 @@ footer {
 #game {
     /* No Border */
     border: none;
+    opacity: 0.2;
 }
 
 /* Shade */
 #shade {
-    /* Overlay Position */
+    /* Overlay Layout */
     position: absolute;
-    top: 0px;
-    left: 0px;
+    top: 0;
+    left: 0;
+
+    /* Z Index */
+    z-index: 10;
 
     /* Full Screen */
     height: 100vh;
     width: 100vw;
 
-    /* Z Index */
-    z-index: 10;
-
     /* Background Color */
-    background: #000000;
+    background: black;
 
     /* Fade Animation */
     transition: opacity 0.2s ease;
-
-    /* Enabled Animation */
     &.enabled { opacity: 50%; pointer-events: all; }
-    
-    /* Disabled Animation */
     &.disabled { opacity: 0%; pointer-events: none; }
 }
 
 /* Popup */
 #popup {
-    /* Base Size */
-    font-size: 15px;
-
-    /* Center Position */
+    /* Vertical + Center Layout */
+    display: flex;
+    flex-direction: column;
     position: absolute;
     top: 50%;
     left: 50%;
     translate: -50% -50%;
 
-    /* Vertical Layout */
-    display: flex;
-    flex-direction: column;
+    /* Z Index */
+    z-index: 20;
     
     /* Clamp Size */
-    height: 100vh;
-    width: 100vw;
     min-height: 100px;
     min-width: 100px;
     max-height: 75vh;
     max-width: 50vw;
     
-    /* Small Padding */
+    /* Side Padding */
     padding: 1em 0.5em;
-
-    /* Z Index */
-    z-index: 20;
     
     /* Background Color */
-    background: #1f1f2f;
+    background: var(--color-1);
 
     /* Border Color */
-    border: solid 0.5em #2f2f4f;
+    border: solid 0.5em var(--color-2);
     border-radius: 0.5em;
 
     /* Justify Text */
@@ -188,23 +178,19 @@ footer {
 
     /* Scale Animation */
     transition: scale 0.2s ease;
-
-    /* Enabled Animation */
     &.enabled { scale: 100%; }
-    
-    /* Disabled Animation */
     &.disabled { scale: 0%; }
 
     /* Close Button */
     & #close {
-        /* Z Index */
-        z-index: 30;
-
-        /* Top Right Position */
+        /* Top Right Layout */
         position: absolute;
         top: -0.25em;
         right: -0.25em;
         translate: 50% -50%;
+
+        /* Z Index */
+        z-index: 30;
 
         /* No Background */
         background: none;
@@ -217,23 +203,26 @@ footer {
         width: 2em;
         height: 2em;
 
+        /* Fit Image */
+        & img { height: 100%; width: 100%; }
+
         /* Hover Animation */
         transition: opacity 0.2s ease;
-
-        /* Dim Hover */
         &:hover { opacity: 75%; }
-
-        /* Rescale Image */
-        & img { height: 100%; width: 100%; }
     }
 
     /* Content Board */
     & #board {
-        /* Small Padding */
-        padding: 0em 1.5em;
-
+        /* Side Padding */
+        padding: 0em 1em;
+        
         /* Enable Scroll */
         overflow: auto;
+
+        /* Scrollbar Styles */
+        scrollbar-color: var(--color-3) var(--color-2);
+        scrollbar-gutter: stable both-edges;
+        scrollbar-width: thin;
     }
 }
 
