@@ -1,32 +1,45 @@
 // Imports
 import { render } from "preact";
-import { useState } from "preact/hooks";
-import About from "./compos/about";
-import Shade from "./compos/shade";
+import { useEffect, useState } from "preact/hooks";
+import close from "./assets/svg/close-button.svg";
 import "./assets/css/index.css";
 
 // Defines website
 function Website() {
+	// Defines states
 	const [ inPopup, setInPopup ] = useState<boolean>(false);
 
+	// Registers events
+	useEffect(() => {
+		// Defines events
+		const keydown = (event: KeyboardEvent) => {
+			if(inPopup && event.key === "Escape") setInPopup(false);
+		};
+
+		// Listens events
+		document.body.addEventListener("keydown", keydown);
+
+		// Defines cleanups
+		return () => {
+			document.body.removeEventListener("keydown", keydown);
+		};
+	}, [ inPopup ]);
+
+	// Creates html
 	return <>
 		{/* Header */}
 		<header>
 			<button onClick={() => setInPopup(true)}>About</button>
-			<button>{inPopup ? "yes" :"no"}</button>
+			<button onClick={() => setInPopup(true)}>Projects</button>
 			<img src="/happi.png"/>
-			<button>Roadmaps</button>
-			<button>Updates</button>
+			<button onClick={() => setInPopup(true)}>Roadmaps</button>
+			<button onClick={() => setInPopup(true)}>Updates</button>
 		</header>
 
 		{/* Main */}
 		<main>
-			<iframe src="https://game.dmmdgm.dev/game.html" width="100%" height="100%"></iframe>
+			<iframe id="game" src="https://game.dmmdgm.dev/game.html" width="100%" height="100%"></iframe>
 		</main>
-
-		{/* Popup */}
-		<Shade toggle={inPopup}/>
-		<About close={() => setInPopup(false)}/>
 		
 		{/* Footer */}
 		<footer>
@@ -35,6 +48,80 @@ function Website() {
 			</span>
 			<span>DmmD GM - Coming Soon to Your Nearest Supermarket @ 2026</span>
 		</footer>
+
+		{/* Shade */}
+		<div id="shade" onClick={() => setInPopup(false)} className={inPopup ? "enabled" : "disabled"}></div>
+		
+		{/* Popup */}
+		<div id="popup" className={inPopup ? "enabled" : "disabled"}>
+			<button id="close" onClick={() => setInPopup(false)}><img src={close}/></button>
+			<div id="board">
+				Hello World!
+				Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maiores dolores illum quod, at rerum omnis distinctio, autem modi recusandae laboriosam, necessitatibus magni. Eos quae expedita aperiam vitae deleniti vel iusto.
+				Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maiores dolores illum quod, at rerum omnis distinctio, autem modi recusandae laboriosam, necessitatibus magni. Eos quae expedita aperiam vitae deleniti vel iusto.
+				Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maiores dolores illum quod, at rerum omnis distinctio, autem modi recusandae laboriosam, necessitatibus magni. Eos quae expedita aperiam vitae deleniti vel iusto.
+				Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maiores dolores illum quod, at rerum omnis distinctio, autem modi recusandae laboriosam, necessitatibus magni. Eos quae expedita aperiam vitae deleniti vel iusto.
+				Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maiores dolores illum quod, at rerum omnis distinctio, autem modi recusandae laboriosam, necessitatibus magni. Eos quae expedita aperiam vitae deleniti vel iusto.
+				Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maiores dolores illum quod, at rerum omnis distinctio, autem modi recusandae laboriosam, necessitatibus magni. Eos quae expedita aperiam vitae deleniti vel iusto.
+				Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maiores dolores illum quod, at rerum omnis distinctio, autem modi recusandae laboriosam, necessitatibus magni. Eos quae expedita aperiam vitae deleniti vel iusto.
+				Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maiores dolores illum quod, at rerum omnis distinctio, autem modi recusandae laboriosam, necessitatibus magni. Eos quae expedita aperiam vitae deleniti vel iusto.
+				Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maiores dolores illum quod, at rerum omnis distinctio, autem modi recusandae laboriosam, necessitatibus magni. Eos quae expedita aperiam vitae deleniti vel iusto.
+				Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maiores dolores illum quod, at rerum omnis distinctio, autem modi recusandae laboriosam, necessitatibus magni. Eos quae expedita aperiam vitae deleniti vel iusto.
+				Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maiores dolores illum quod, at rerum omnis distinctio, autem modi recusandae laboriosam, necessitatibus magni. Eos quae expedita aperiam vitae deleniti vel iusto.
+				Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maiores dolores illum quod, at rerum omnis distinctio, autem modi recusandae laboriosam, necessitatibus magni. Eos quae expedita aperiam vitae deleniti vel iusto.
+				Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maiores dolores illum quod, at rerum omnis distinctio, autem modi recusandae laboriosam, necessitatibus magni. Eos quae expedita aperiam vitae deleniti vel iusto.
+				Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maiores dolores illum quod, at rerum omnis distinctio, autem modi recusandae laboriosam, necessitatibus magni. Eos quae expedita aperiam vitae deleniti vel iusto.
+				Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maiores dolores illum quod, at rerum omnis distinctio, autem modi recusandae laboriosam, necessitatibus magni. Eos quae expedita aperiam vitae deleniti vel iusto.
+				Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maiores dolores illum quod, at rerum omnis distinctio, autem modi recusandae laboriosam, necessitatibus magni. Eos quae expedita aperiam vitae deleniti vel iusto.
+				Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maiores dolores illum quod, at rerum omnis distinctio, autem modi recusandae laboriosam, necessitatibus magni. Eos quae expedita aperiam vitae deleniti vel iusto.
+				Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maiores dolores illum quod, at rerum omnis distinctio, autem modi recusandae laboriosam, necessitatibus magni. Eos quae expedita aperiam vitae deleniti vel iusto.
+				Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maiores dolores illum quod, at rerum omnis distinctio, autem modi recusandae laboriosam, necessitatibus magni. Eos quae expedita aperiam vitae deleniti vel iusto.
+				Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maiores dolores illum quod, at rerum omnis distinctio, autem modi recusandae laboriosam, necessitatibus magni. Eos quae expedita aperiam vitae deleniti vel iusto.
+				Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maiores dolores illum quod, at rerum omnis distinctio, autem modi recusandae laboriosam, necessitatibus magni. Eos quae expedita aperiam vitae deleniti vel iusto.
+				Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maiores dolores illum quod, at rerum omnis distinctio, autem modi recusandae laboriosam, necessitatibus magni. Eos quae expedita aperiam vitae deleniti vel iusto.
+				Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maiores dolores illum quod, at rerum omnis distinctio, autem modi recusandae laboriosam, necessitatibus magni. Eos quae expedita aperiam vitae deleniti vel iusto.
+				Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maiores dolores illum quod, at rerum omnis distinctio, autem modi recusandae laboriosam, necessitatibus magni. Eos quae expedita aperiam vitae deleniti vel iusto.
+				Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maiores dolores illum quod, at rerum omnis distinctio, autem modi recusandae laboriosam, necessitatibus magni. Eos quae expedita aperiam vitae deleniti vel iusto.
+				Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maiores dolores illum quod, at rerum omnis distinctio, autem modi recusandae laboriosam, necessitatibus magni. Eos quae expedita aperiam vitae deleniti vel iusto.
+				Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maiores dolores illum quod, at rerum omnis distinctio, autem modi recusandae laboriosam, necessitatibus magni. Eos quae expedita aperiam vitae deleniti vel iusto.
+				Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maiores dolores illum quod, at rerum omnis distinctio, autem modi recusandae laboriosam, necessitatibus magni. Eos quae expedita aperiam vitae deleniti vel iusto.
+				Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maiores dolores illum quod, at rerum omnis distinctio, autem modi recusandae laboriosam, necessitatibus magni. Eos quae expedita aperiam vitae deleniti vel iusto.
+				Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maiores dolores illum quod, at rerum omnis distinctio, autem modi recusandae laboriosam, necessitatibus magni. Eos quae expedita aperiam vitae deleniti vel iusto.
+				Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maiores dolores illum quod, at rerum omnis distinctio, autem modi recusandae laboriosam, necessitatibus magni. Eos quae expedita aperiam vitae deleniti vel iusto.
+				Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maiores dolores illum quod, at rerum omnis distinctio, autem modi recusandae laboriosam, necessitatibus magni. Eos quae expedita aperiam vitae deleniti vel iusto.
+				Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maiores dolores illum quod, at rerum omnis distinctio, autem modi recusandae laboriosam, necessitatibus magni. Eos quae expedita aperiam vitae deleniti vel iusto.
+				Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maiores dolores illum quod, at rerum omnis distinctio, autem modi recusandae laboriosam, necessitatibus magni. Eos quae expedita aperiam vitae deleniti vel iusto.
+				Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maiores dolores illum quod, at rerum omnis distinctio, autem modi recusandae laboriosam, necessitatibus magni. Eos quae expedita aperiam vitae deleniti vel iusto.
+				Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maiores dolores illum quod, at rerum omnis distinctio, autem modi recusandae laboriosam, necessitatibus magni. Eos quae expedita aperiam vitae deleniti vel iusto.
+				Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maiores dolores illum quod, at rerum omnis distinctio, autem modi recusandae laboriosam, necessitatibus magni. Eos quae expedita aperiam vitae deleniti vel iusto.
+				Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maiores dolores illum quod, at rerum omnis distinctio, autem modi recusandae laboriosam, necessitatibus magni. Eos quae expedita aperiam vitae deleniti vel iusto.
+				Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maiores dolores illum quod, at rerum omnis distinctio, autem modi recusandae laboriosam, necessitatibus magni. Eos quae expedita aperiam vitae deleniti vel iusto.
+				Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maiores dolores illum quod, at rerum omnis distinctio, autem modi recusandae laboriosam, necessitatibus magni. Eos quae expedita aperiam vitae deleniti vel iusto.
+				Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maiores dolores illum quod, at rerum omnis distinctio, autem modi recusandae laboriosam, necessitatibus magni. Eos quae expedita aperiam vitae deleniti vel iusto.
+				Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maiores dolores illum quod, at rerum omnis distinctio, autem modi recusandae laboriosam, necessitatibus magni. Eos quae expedita aperiam vitae deleniti vel iusto.
+				Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maiores dolores illum quod, at rerum omnis distinctio, autem modi recusandae laboriosam, necessitatibus magni. Eos quae expedita aperiam vitae deleniti vel iusto.
+				Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maiores dolores illum quod, at rerum omnis distinctio, autem modi recusandae laboriosam, necessitatibus magni. Eos quae expedita aperiam vitae deleniti vel iusto.
+				Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maiores dolores illum quod, at rerum omnis distinctio, autem modi recusandae laboriosam, necessitatibus magni. Eos quae expedita aperiam vitae deleniti vel iusto.
+				Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maiores dolores illum quod, at rerum omnis distinctio, autem modi recusandae laboriosam, necessitatibus magni. Eos quae expedita aperiam vitae deleniti vel iusto.
+				Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maiores dolores illum quod, at rerum omnis distinctio, autem modi recusandae laboriosam, necessitatibus magni. Eos quae expedita aperiam vitae deleniti vel iusto.
+				Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maiores dolores illum quod, at rerum omnis distinctio, autem modi recusandae laboriosam, necessitatibus magni. Eos quae expedita aperiam vitae deleniti vel iusto.
+				Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maiores dolores illum quod, at rerum omnis distinctio, autem modi recusandae laboriosam, necessitatibus magni. Eos quae expedita aperiam vitae deleniti vel iusto.
+				Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maiores dolores illum quod, at rerum omnis distinctio, autem modi recusandae laboriosam, necessitatibus magni. Eos quae expedita aperiam vitae deleniti vel iusto.
+				Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maiores dolores illum quod, at rerum omnis distinctio, autem modi recusandae laboriosam, necessitatibus magni. Eos quae expedita aperiam vitae deleniti vel iusto.
+				Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maiores dolores illum quod, at rerum omnis distinctio, autem modi recusandae laboriosam, necessitatibus magni. Eos quae expedita aperiam vitae deleniti vel iusto.
+				Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maiores dolores illum quod, at rerum omnis distinctio, autem modi recusandae laboriosam, necessitatibus magni. Eos quae expedita aperiam vitae deleniti vel iusto.
+				Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maiores dolores illum quod, at rerum omnis distinctio, autem modi recusandae laboriosam, necessitatibus magni. Eos quae expedita aperiam vitae deleniti vel iusto.
+				Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maiores dolores illum quod, at rerum omnis distinctio, autem modi recusandae laboriosam, necessitatibus magni. Eos quae expedita aperiam vitae deleniti vel iusto.
+				Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maiores dolores illum quod, at rerum omnis distinctio, autem modi recusandae laboriosam, necessitatibus magni. Eos quae expedita aperiam vitae deleniti vel iusto.
+				Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maiores dolores illum quod, at rerum omnis distinctio, autem modi recusandae laboriosam, necessitatibus magni. Eos quae expedita aperiam vitae deleniti vel iusto.
+				Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maiores dolores illum quod, at rerum omnis distinctio, autem modi recusandae laboriosam, necessitatibus magni. Eos quae expedita aperiam vitae deleniti vel iusto.
+				Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maiores dolores illum quod, at rerum omnis distinctio, autem modi recusandae laboriosam, necessitatibus magni. Eos quae expedita aperiam vitae deleniti vel iusto.
+				Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maiores dolores illum quod, at rerum omnis distinctio, autem modi recusandae laboriosam, necessitatibus magni. Eos quae expedita aperiam vitae deleniti vel iusto.
+				Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maiores dolores illum quod, at rerum omnis distinctio, autem modi recusandae laboriosam, necessitatibus magni. Eos quae expedita aperiam vitae deleniti vel iusto.
+				Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maiores dolores illum quod, at rerum omnis distinctio, autem modi recusandae laboriosam, necessitatibus magni. Eos quae expedita aperiam vitae deleniti vel iusto.
+				Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maiores dolores illum quod, at rerum omnis distinctio, autem modi recusandae laboriosam, necessitatibus magni. Eos quae expedita aperiam vitae deleniti vel iusto.
+			</div>
+		</div>
 	</>;
 }
 

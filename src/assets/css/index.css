@@ -1,4 +1,4 @@
-/* ----- Global Styles ----- */
+/* -----# Global Styles #----- */
 
 /* Full Screen */
 html, body, #website { height: 100%; width: 100%; }
@@ -12,9 +12,13 @@ html, body, #website { height: 100%; width: 100%; }
 /* Default Text Style  */
 * { color: #efefef; font-family: "Noto Sans"; }
 
+/* -----# Global Styles #----- */
 
 
-/* ----- Template Styles ----- */
+
+
+
+/* -----# Structure Styles #----- */
 
 /* Header */
 header {
@@ -27,8 +31,8 @@ header {
     justify-content: center;
     gap: 0px 5%;
 
-    /* Adjust Dimensions */
-    height: 50px;
+    /* Adjust Size */
+    height: 3em;
     padding: 1em 0px;
     
     /* Avatar */
@@ -48,6 +52,9 @@ header {
         /* No Background */
         background: none;
         border: none;
+
+        /* Pointer Cursor */
+        cursor: pointer;
         
         /* Text Style */
         font-size: 1em;
@@ -59,18 +66,16 @@ header {
 
 /* Main */
 main {
+    /* Base Size */
+    font-size: 15px;
+
     /* Full Height */
     flex: 1;
 
     /* Padding */
-    padding: 25px 50px;
+    padding: 0px 2em;
 }
 
-/* Game */
-iframe {
-    /* No Border */
-    border: none;
-}
 
 /* Footer */
 footer {
@@ -82,12 +87,12 @@ footer {
     align-items: center;
     justify-content: space-between;
 
-    /* Adjust Dimensions */
+    /* Adjust Size */
     height: 1em;
     padding: 2em 3em;
 
     /* Text Color */
-    & a, & span { color: #2f2f4f; }
+    & a, & span { color: #1f1f2f; }
 
     /* Redirections */
     & a {
@@ -98,6 +103,138 @@ footer {
         transition: color 0.2s ease;
 
         /* Glow Hover */
-        &:hover { color: #4f4f6f; }
+        &:hover { color: #2f2f4f; }
     }
 }
+
+/* -----# Structure Styles #----- */
+
+
+
+
+/* -----# Content Styles #----- */
+
+/* Game */
+#game {
+    /* No Border */
+    border: none;
+}
+
+/* Shade */
+#shade {
+    /* Overlay Position */
+    position: absolute;
+    top: 0px;
+    left: 0px;
+
+    /* Full Screen */
+    height: 100vh;
+    width: 100vw;
+
+    /* Z Index */
+    z-index: 10;
+
+    /* Background Color */
+    background: #000000;
+
+    /* Fade Animation */
+    transition: opacity 0.2s ease;
+
+    /* Enabled Animation */
+    &.enabled { opacity: 50%; pointer-events: all; }
+    
+    /* Disabled Animation */
+    &.disabled { opacity: 0%; pointer-events: none; }
+}
+
+/* Popup */
+#popup {
+    /* Base Size */
+    font-size: 15px;
+
+    /* Center Position */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    translate: -50% -50%;
+
+    /* Vertical Layout */
+    display: flex;
+    flex-direction: column;
+    
+    /* Clamp Size */
+    height: 100vh;
+    width: 100vw;
+    min-height: 100px;
+    min-width: 100px;
+    max-height: 75vh;
+    max-width: 50vw;
+    
+    /* Small Padding */
+    padding: 1em 0.5em;
+
+    /* Z Index */
+    z-index: 20;
+    
+    /* Background Color */
+    background: #1f1f2f;
+
+    /* Border Color */
+    border: solid 0.5em #2f2f4f;
+    border-radius: 0.5em;
+
+    /* Justify Text */
+    text-align: justify;
+
+    /* Scale Animation */
+    transition: scale 0.2s ease;
+
+    /* Enabled Animation */
+    &.enabled { scale: 100%; }
+    
+    /* Disabled Animation */
+    &.disabled { scale: 0%; }
+
+    /* Close Button */
+    & #close {
+        /* Z Index */
+        z-index: 30;
+
+        /* Top Right Position */
+        position: absolute;
+        top: -0.25em;
+        right: -0.25em;
+        translate: 50% -50%;
+
+        /* No Background */
+        background: none;
+        border: none;
+
+        /* Pointer Cursor */
+        cursor: pointer;
+
+        /* Adjust Size */
+        width: 2em;
+        height: 2em;
+
+        /* Hover Animation */
+        transition: opacity 0.2s ease;
+
+        /* Dim Hover */
+        &:hover { opacity: 75%; }
+
+        /* Rescale Image */
+        & img { height: 100%; width: 100%; }
+    }
+
+    /* Content Board */
+    & #board {
+        /* Small Padding */
+        padding: 0em 1.5em;
+
+        /* Enable Scroll */
+        overflow: auto;
+    }
+}
+
+/* -----# Content Styles #----- */
