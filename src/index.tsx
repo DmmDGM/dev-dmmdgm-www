@@ -58,7 +58,7 @@ function Website() {
 			</div>
 			<div>
 				<span>
-					DmmD GM (2026) @ Acting Cute Around Since '06 &lt;3
+					DmmD GM (2026) @ Acting Cute Since '06 &lt;3
 				</span>
 			</div>
 		</footer>
