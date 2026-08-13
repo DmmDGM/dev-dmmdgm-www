@@ -9,8 +9,8 @@ export default function() {
         <span>Welcome to my lil' website.</span>
         <span>Can you tell I'm still working on it?</span>
         <span>No? :33333333333333333</span>
-        <span></span>
-        <span>hai hwo are u? i luv you &lt;3</span>
-        <span>hav a grest day of ur lif (nyan~)</span>
+        <br/>
+        <span>hai hwo are u? i luv you</span>
+        <span>because every day spent with you is already a miracle &lt;3</span>
     </div>
 }
