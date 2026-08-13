@@ -69,11 +69,11 @@ function Website() {
 		{/* Popup */}
 		<div id="popup" className={inPopup ? "enabled" : "disabled"}>
 			<button id="close" onClick={() => { setInPopup(false); setBanner(""); }}><img src={close}/></button>
-			<div id="board">
-				{ banner === "about" && <About/>}
-				{ banner === "projects" && <Projects/>}
-				{ banner === "roadmaps" && <Roadmaps/>}
-				{ banner === "updates" && <Updates/>}
+			<div id="banner">
+				{ banner === "about" && <About/> }
+				{ banner === "projects" && <Projects/> }
+				{ banner === "roadmaps" && <Roadmaps/> }
+				{ banner === "updates" && <Updates/> }
 			</div>
 		</div>
 	</>;

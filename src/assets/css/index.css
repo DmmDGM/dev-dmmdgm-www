@@ -212,8 +212,8 @@ footer {
         &:hover { opacity: 75%; }
     }
 
-    /* Content Board */
-    & #board {
+    /* Content Banner */
+    & #banner {
         /* Side Padding */
         padding: 0em 1em;
         
