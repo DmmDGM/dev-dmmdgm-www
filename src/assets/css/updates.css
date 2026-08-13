@@ -1,11 +1,11 @@
-/* -----# About Banner #----- */
+/* -----# Updates Banner #----- */
 
-/* About */
-#about {
+/* Updates */
+#updates {
     /* Vertical Layout */
     display: flex;
     flex-direction: column;
     gap: 10px 0px;
 }
 
-/* -----# About Banner #----- */
+/* -----# Updates Banner #----- */

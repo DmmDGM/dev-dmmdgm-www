@@ -96,7 +96,8 @@ footer {
     padding: 1em 2em;
 
     /* Text Styles */
-    & a, & span { color: var(--color-1); font-size: 0.75em; }
+    & div { font-size: 0.75em; }
+    & a, span { color: var(--color-1); font-size: 1em; }
 
     /* Redirections */
     & a {
@@ -175,9 +176,6 @@ footer {
     /* Border Color */
     border: solid 0.5em var(--color-2);
     border-radius: 0.5em;
-
-    /* Justify Text */
-    text-align: justify;
 
     /* Scale Animation */
     transition: scale 0.2s ease;

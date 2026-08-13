@@ -3,6 +3,9 @@ import { render } from "preact";
 import { useEffect, useState } from "preact/hooks";
 import close from "./assets/svg/close-button.svg";
 import About from "./comps/about";
+import Projects from "./comps/projects";
+import Roadmaps from "./comps/roadmaps";
+import Updates from "./comps/updates";
 import "./assets/css/index.css";
 
 // Defines website
@@ -48,10 +51,16 @@ function Website() {
 		
 		{/* Footer */}
 		<footer>
-			<span>
-				Hand Written :3 <a href="https://github.com/DmmDGM/dev-dmmdgm-www" target="_blank" rel="noopener noreferrer">Source Code</a> (cant believe this is the exception now)
-			</span>
-			<span>DmmD GM - Coming Soon to Your Nearest Supermarket @ 2026</span>
+			<div>
+				<span>
+					Hand Written <a href="https://github.com/DmmDGM/dev-dmmdgm-www" target="_blank" rel="noopener noreferrer">Source Code</a> :3
+				</span>
+			</div>
+			<div>
+				<span>
+					DmmD GM (2026) @ Acting Cute Around Since '06 &lt;3
+				</span>
+			</div>
 		</footer>
 
 		{/* Shade */}
@@ -61,8 +70,10 @@ function Website() {
 		<div id="popup" className={inPopup ? "enabled" : "disabled"}>
 			<button id="close" onClick={() => { setInPopup(false); setBanner(""); }}><img src={close}/></button>
 			<div id="board">
-				Lorem Ipsum :3333333<br/>
 				{ banner === "about" && <About/>}
+				{ banner === "projects" && <Projects/>}
+				{ banner === "roadmaps" && <Roadmaps/>}
+				{ banner === "updates" && <Updates/>}
 			</div>
 		</div>
 	</>;
