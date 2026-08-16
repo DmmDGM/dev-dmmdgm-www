@@ -1,8 +1,8 @@
-/* -----# Projects Banner #----- */
+/* ----- # Projects Banner # ----- */
 
 /* Projects */
 #projects {
-    /* Vertical Layout */
+    /* Vertical Display */
     display: flex;
     flex-direction: column;
     gap: 10px 0px;

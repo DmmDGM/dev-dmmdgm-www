@@ -9,6 +9,7 @@ import Updates from "./comps/updates";
 import "./assets/css/index.css";
 import "./assets/css/main.css";
 import "./assets/css/game.css";
+import "./assets/css/popup.css";
 
 // Defines website
 function Website() {

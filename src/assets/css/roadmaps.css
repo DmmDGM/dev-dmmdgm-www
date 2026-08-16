@@ -1,8 +1,8 @@
-/* -----# Roadmaps Banner #----- */
+/* ----- # Roadmaps Banner # ----- */
 
 /* Roadmaps */
 #roadmaps {
-    /* Vertical Layout */
+    /* Vertical Display */
     display: flex;
     flex-direction: column;
     gap: 10px 0px;
