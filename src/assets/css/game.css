@@ -1,0 +1,105 @@
+/* -----# Game Canvas #----- */
+
+/* Game Canvas */
+#game {
+    /* No Border */
+    border: none;
+}
+
+/* Popup Shade */
+#shade {
+    /* Absolute Position */
+    position: absolute;
+    z-index: 10;
+    top: 0;
+    left: 0;
+
+    /* Full Screen */
+    height: 100vh;
+    width: 100vw;
+
+    /* Background Color */
+    background: black;
+
+    /* Fade Animation */
+    transition: opacity 0.2s ease;
+    &.enabled { opacity: 50%; pointer-events: all; }
+    &.disabled { opacity: 0%; pointer-events: none; }
+}
+
+/* Popup Menu */
+#popup {
+    /* Vertical Display */
+    display: flex;
+    flex-direction: column;
+
+    /* Absolute Center Position */
+    position: absolute;
+    z-index: 20;
+    top: 50%;
+    left: 50%;
+    translate: -50% -50%;
+    
+    /* Clamp Size */
+    min-height: 100px;
+    min-width: 100px;
+    max-height: 75vh;
+    max-width: 50vw;
+    
+    /* Side Padding */
+    padding: 1em 0.5em;
+    
+    /* Background Color */
+    background: var(--color-1);
+
+    /* Border Color */
+    border: 0.5em solid var(--color-2);
+    border-radius: 0.5em;
+
+    /* Zoom Animation */
+    transition: scale 0.2s ease;
+    &.enabled { scale: 100%; }
+    &.disabled { scale: 0%; }
+
+    /* Close Button */
+    & #close {
+        /* Absolute Top Right Position */
+        position: absolute;
+        z-index: 30;
+        top: -0.25em;
+        right: -0.25em;
+        translate: 50% -50%;
+
+        /* No Background */
+        background: none;
+        border: none;
+
+        /* Pointer Cursor */
+        cursor: pointer;
+
+        /* Adjust Sizing */
+        width: 2em;
+        height: 2em;
+
+        /* Refit Image */
+        & img { height: 100%; width: 100%; }
+
+        /* Hover Animation */
+        transition: opacity 0.2s ease;
+        &:hover { opacity: 75%; }
+    }
+
+    /* Content Banner */
+    & #banner {
+        /* Side Margin */
+        margin: 0em 1em;
+        
+        /* Enable Scroll */
+        overflow: auto;
+
+        /* Scrollbar Styles */
+        scrollbar-color: var(--color-3) var(--color-2);
+        scrollbar-gutter: stable both-edges;
+        scrollbar-width: thin;
+    }
+}

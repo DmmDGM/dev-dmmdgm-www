@@ -1,0 +1,82 @@
+/* -----# Main Styles #----- */
+
+/* Header */
+header {
+    /* Centered Horizontal Display */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0 5%;
+
+    /* Adjust Sizing */
+    height: 3em;
+    padding: 1em 0;
+    
+    /* DmmD GM Avatar */
+    & img {
+        /* Smol and Tiny :3 */
+        height: 3em;
+
+        /* With Funni Hover */
+        &:hover { rotate: 180deg; }
+    }
+
+    /* Buttons */
+    & button {
+        /* Uniform Width */
+        width: 5em;
+
+        /* No Background */
+        background: none;
+        border: none;
+
+        /* Pointer Cursor */
+        cursor: pointer;
+        
+        /* Text Styles */
+        font-weight: bold;
+        text-align: center;
+        text-decoration: none;
+
+        /* Underline Hover */
+        &:hover { text-decoration: underline; }
+    }
+}
+
+/* Main */
+main {
+    /* Full Height */
+    flex: 1;
+
+    /* Side Margin */
+    margin: 0 2em;
+}
+
+/* Footer */
+footer {
+    /* Aside Horizontal Display */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    /* Adjust Sizing */
+    height: 1em;
+    padding: 1em 2em;
+
+    /* Text Styles */
+    & div { color: var(--color-1); font-size: 0.75em; }
+
+    /* External Links */
+    & a {
+        /* Inherit Text Styles */
+        color: inherit;
+        font-size: inherit;
+
+        /* URL Underline */
+        text-decoration: underline;
+
+        /* Glow Hover */
+        transition: color 0.2s ease;
+        &:hover { color: var(--color-2); }
+    }
+}

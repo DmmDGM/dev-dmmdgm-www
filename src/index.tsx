@@ -7,21 +7,19 @@ import Projects from "./comps/projects";
 import Roadmaps from "./comps/roadmaps";
 import Updates from "./comps/updates";
 import "./assets/css/index.css";
+import "./assets/css/main.css";
+import "./assets/css/game.css";
 
 // Defines website
 function Website() {
 	// Defines states
-	const [ inPopup, setInPopup ] = useState<boolean>(false);
 	const [ banner, setBanner ] = useState<string>("");
 
 	// Registers events
 	useEffect(() => {
 		// Defines events
 		const keydown = (event: KeyboardEvent) => {
-			if(inPopup && event.key === "Escape") {
-				setInPopup(false);
-				setBanner("");
-			}
+			if(banner !== "" && event.key === "Escape") setBanner("");
 		};
 
 		// Listens events
@@ -31,17 +29,17 @@ function Website() {
 		return () => {
 			document.body.removeEventListener("keydown", keydown);
 		};
-	}, [ inPopup ]);
+	}, [ banner ]);
 
 	// Creates html
 	return <>
 		{/* Header */}
 		<header>
-			<button onClick={() => { setInPopup(true); setBanner("about"); }}>About</button>
-			<button onClick={() => { setInPopup(true); setBanner("projects"); }}>Projects</button>
+			<button onClick={() => { setBanner("about"); }}>About</button>
+			<button onClick={() => { setBanner("projects"); }}>Projects</button>
 			<img src="/happi.png"/>
-			<button onClick={() => { setInPopup(true); setBanner("roadmaps"); }}>Roadmaps</button>
-			<button onClick={() => { setInPopup(true); setBanner("updates"); }}>Updates</button>
+			<button onClick={() => { setBanner("roadmaps"); }}>Roadmaps</button>
+			<button onClick={() => { setBanner("updates"); }}>Updates</button>
 		</header>
 
 		{/* Main */}
@@ -52,23 +50,19 @@ function Website() {
 		{/* Footer */}
 		<footer>
 			<div>
-				<span>
-					Hand Written <a href="https://github.com/DmmDGM/dev-dmmdgm-www" target="_blank" rel="noopener noreferrer">Source Code</a> :3
-				</span>
+				Hand Written <a href="https://github.com/DmmDGM/dev-dmmdgm-www" target="_blank" rel="noopener noreferrer">Source Code</a> :3
 			</div>
 			<div>
-				<span>
-					DmmD GM (2026) @ Acting Cute Since '06 &lt;3
-				</span>
+				DmmD GM (2026) @ Acting Cute Since '06 &lt;3
 			</div>
 		</footer>
 
 		{/* Shade */}
-		<div id="shade" onClick={() => { setInPopup(false); setBanner(""); }} className={inPopup ? "enabled" : "disabled"}></div>
+		<div id="shade" onClick={() => { setBanner(""); }} className={banner !== "" ? "enabled" : "disabled"}></div>
 		
 		{/* Popup */}
-		<div id="popup" className={inPopup ? "enabled" : "disabled"}>
-			<button id="close" onClick={() => { setInPopup(false); setBanner(""); }}><img src={close}/></button>
+		<div id="popup" className={banner !== "" ? "enabled" : "disabled"}>
+			<button id="close" onClick={() => { setBanner(""); }}><img src={close}/></button>
 			<div id="banner">
 				{ banner === "about" && <About/> }
 				{ banner === "projects" && <Projects/> }
